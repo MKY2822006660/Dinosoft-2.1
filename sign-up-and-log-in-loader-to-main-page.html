@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+<head>
+
+  <link rel="icon" type="image/x-icon" href="DINOSOFT-LOGO.jpg">
+  
+<body>
+
+</body>
+</html>
+
+<meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .main {
+      position: absolute;
+      top: 36%;
+      left: 43%;
+      transform: translate(-50%, -50%);
+    }
+
+    span {
+      color: #fff;
+      background: #e7e7e7;
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      z-index: 1;
+      animation: zayd 3s infinite;
+      animation-delay: .5s;
+    }
+
+    span:nth-child(1) {
+      background: gray;
+      height: 180px;
+      width: 180px;
+      z-index: 2;
+      left: 10px;
+      top: 10px;
+      animation-delay: .4s;
+    }
+
+    span:nth-child(2) {
+      background: #e7e7e7;
+      height: 160px;
+      width: 160px;
+      z-index: 3;
+      left: 20px;
+      top: 20px;
+      animation-delay: .3s;
+    }
+
+    span:nth-child(3) {
+      background: gray;
+      height: 140px;
+      width: 140px;
+      z-index: 4;
+      left: 30px;
+      top: 30px;
+      animation-delay: .2s;
+    }
+
+    span:nth-child(4) {
+      background: #e7e7e7;
+      height: 120px;
+      width: 120px;
+      z-index: 4;
+      left: 40px;
+      top: 40px;
+      animation-delay: .1s;
+    }
+
+    @keyframes zayd {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      30% {
+        transform: rotate(90deg);
+      }
+
+      60% {
+        transform: rotate(180deg);
+      }
+
+      90% {
+        transform: rotate(270deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body translate="no">
+  <div class="main">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <script>
+    // Function to generate a random number between min and max
+    function getRandomDuration(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // Get all span elements
+    const spans = document.querySelectorAll('span');
+
+    // Store the maximum duration
+    let maxDuration = 0;
+
+    // Set a random animation duration for each span and find the maximum duration
+    spans.forEach(span => {
+      const randomDuration = getRandomDuration(3, 5);
+      span.style.animationDuration = `${randomDuration}s`;
+      if (randomDuration > maxDuration) {
+        maxDuration = randomDuration;
+      }
+    });
+
+    // Redirect to another page after the maximum duration
+    setTimeout(() => {
+      window.location.href = 'home.html'; // Replace with your desired URL
+    }, (maxDuration + 0.5) * 1000); // Convert to milliseconds and add some buffer for animation delay
+  </script>
+</body>
+
+</html>
